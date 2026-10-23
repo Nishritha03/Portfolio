@@ -1,118 +1,134 @@
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
+(function () {
+  'use strict';
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  var KEY = 'nd-theme';
 
-// ============ Nav scrolled state + progress bar ============
-const navEl = document.getElementById('nav');
-const progressBar = document.getElementById('progressBar');
-function updateScrollUI() {
-  const doc = document.documentElement;
-  const scrollTop = doc.scrollTop || document.body.scrollTop;
-  const scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
-  if (navEl) navEl.classList.toggle('scrolled', scrollTop > 8);
-  if (progressBar) {
-    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    progressBar.style.width = pct + '%';
-  }
-}
-document.addEventListener('scroll', updateScrollUI, { passive: true });
-updateScrollUI();
+  // Year in the colophon
+  var year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
 
-// ============ Theme toggle (in-memory only; no browser storage) ============
-const themeToggle = document.getElementById('themeToggle');
-function applyTheme(theme) {
-  document.documentElement.classList.toggle('dark', theme === 'dark');
-  themeToggle.setAttribute('aria-pressed', theme === 'dark');
-}
-const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-let currentTheme = systemPrefersDark ? 'dark' : 'light';
-applyTheme(currentTheme);
-themeToggle.addEventListener('click', () => {
-  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  applyTheme(currentTheme);
-});
-
-// ============ Reveal on scroll ============
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      revealObserver.unobserve(entry.target);
+  /* ---------- Theme: Auto / Light / Dark ---------- */
+  function readMode() {
+    try {
+      var v = localStorage.getItem(KEY);
+      return v === 'light' || v === 'dark' ? v : 'auto';
+    } catch (e) {
+      return 'auto';
     }
-  });
-}, { threshold: 0.12 });
+  }
 
-if (prefersReducedMotion) {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
-} else {
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-}
+  function applyMode(mode) {
+    if (mode === 'light' || mode === 'dark') root.setAttribute('data-theme', mode);
+    else root.removeAttribute('data-theme');
 
-// ============ Mobile nav toggle ============
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', isOpen);
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
+    try {
+      if (mode === 'auto') localStorage.removeItem(KEY);
+      else localStorage.setItem(KEY, mode);
+    } catch (e) {}
 
-// ============ Active nav link on scroll ============
-const sections = Array.from(document.querySelectorAll('main section[id]'));
-const links = Array.from(navLinks.querySelectorAll('a'));
+    var btns = document.querySelectorAll('.mode__btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute('aria-pressed', String(btns[i].getAttribute('data-mode') === mode));
+    }
+  }
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      links.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+  var modeGroup = document.querySelector('.mode');
+  if (modeGroup) {
+    applyMode(readMode());
+    modeGroup.addEventListener('click', function (e) {
+      var btn = e.target.closest('.mode__btn');
+      if (btn) applyMode(btn.getAttribute('data-mode'));
+    });
+  }
+
+  /* ---------- Contents panel on small screens ---------- */
+  var spine = document.getElementById('spine');
+  var toggle = spine && spine.querySelector('.spine__toggle');
+  var wide = window.matchMedia('(min-width: 1024px)');
+
+  function setOpen(open) {
+    if (!spine || !toggle) return;
+    spine.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    spine.addEventListener('click', function (e) {
+      if (e.target.closest('.toc a, .spine__links a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && spine.classList.contains('is-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (spine.classList.contains('is-open') && !spine.contains(e.target)) setOpen(false);
+    });
+
+    var onWide = function () { if (wide.matches) setOpen(false); };
+    if (wide.addEventListener) wide.addEventListener('change', onWide);
+    else if (wide.addListener) wide.addListener(onWide);
+  }
+
+  /* ---------- Contents: mark the chapter in view ---------- */
+  var links = document.querySelectorAll('.toc__list a');
+  var chapters = [];
+  for (var i = 0; i < links.length; i++) {
+    var target = document.querySelector(links[i].getAttribute('href'));
+    if (target) chapters.push({ el: target, link: links[i] });
+  }
+
+  function markCurrent() {
+    var line = window.innerHeight * 0.35;
+    var current = null;
+    for (var j = 0; j < chapters.length; j++) {
+      if (chapters[j].el.getBoundingClientRect().top <= line) current = chapters[j];
+    }
+    // At the very bottom, the last chapter is the one being read
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4) {
+      current = chapters[chapters.length - 1];
+    }
+    for (var k = 0; k < chapters.length; k++) {
+      if (chapters[k] === current) chapters[k].link.setAttribute('aria-current', 'location');
+      else chapters[k].link.removeAttribute('aria-current');
+    }
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { markCurrent(); ticking = false; });
+  }, { passive: true });
+  window.addEventListener('resize', markCurrent);
+  markCurrent();
+
+  /* ---------- Gentle reveal ---------- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var items = document.querySelectorAll('.chapter__head, .prose, .layers, .product, .role, .kit__set, .build, .cert, .degree, .invite, .reach');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
       });
-    }
-  });
-}, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
 
-sections.forEach(section => sectionObserver.observe(section));
-
-// ============ Test-run status: spec rows + rail dots + counter ============
-const railDots = document.getElementById('railDots');
-const railCount = document.getElementById('railCount');
-const railItems = railDots ? Array.from(railDots.querySelectorAll('li')) : [];
-let passedCount = 0;
-
-function markPassed(id) {
-  // Flip the section's spec-row status
-  const section = document.getElementById(id);
-  if (section) {
-    const specRow = section.querySelector('.spec-row[data-spec]') || section.querySelector('.spec-row');
-    if (specRow && !specRow.classList.contains('passed')) {
-      specRow.classList.add('passed');
-      const statusEl = specRow.querySelector('.spec-status');
-      if (statusEl) statusEl.textContent = '✓ PASSED';
-    }
+    items.forEach(function (el) {
+      // Anything already on screen stays put; only content below the fold rises in
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      el.classList.add('rise');
+      io.observe(el);
+    });
   }
-  // Fill the matching rail dot
-  const dot = railItems.find(li => li.dataset.target === id);
-  if (dot && !dot.classList.contains('passed')) {
-    dot.classList.add('passed');
-    passedCount++;
-    if (railCount) railCount.textContent = passedCount;
-  }
-}
-
-const testRunObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      markPassed(entry.target.id);
-      testRunObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.35 });
-
-sections.forEach(section => testRunObserver.observe(section));
+})();
