@@ -529,119 +529,136 @@ main:focus { outline: none; }
   border-radius: var(--r-md);
 }
 
-/* ---------- Track record ---------- */
-.roles {
-  display: grid;
-  gap: var(--s-7);
+/* ---------- Experience ---------- */
+.exp { display: grid; gap: var(--s-8); }
+
+/* One block per company */
+.company { display: grid; gap: var(--s-5); }
+.company__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-1) var(--s-5);
+  padding-bottom: var(--s-4);
+  border-bottom: 2px solid var(--ink);
 }
-.role { position: relative; }
-.role__head { margin-bottom: var(--s-5); }
-.role__org {
+.company__name {
   font-size: clamp(1.375rem, 1.2rem + .7vw, 1.75rem);
   line-height: 1.2;
   letter-spacing: -.025em;
 }
-.role--early .role__org { font-size: clamp(1.25rem, 1.15rem + .4vw, 1.5rem); }
-.role__meta {
-  margin-top: 6px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-1) var(--s-4);
-  font-size: .9375rem;
-}
-.role__meta > span:first-child { font-weight: 600; }
-.role__when {
+.company__role {
+  margin-top: 4px;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--ink-2);
+}
+.company__when {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 
-/* Projects inside a role */
-.projects { display: grid; gap: var(--s-4); }
+/* One card per project */
 .project {
   display: grid;
-  gap: var(--s-4);
+  gap: var(--s-5);
   padding: var(--s-5);
 }
+@media (min-width: 640px) {
+  .project { padding: var(--s-6); }
+}
 .project__tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
   font-size: .8125rem;
   font-weight: 600;
   color: var(--accent);
 }
+.badge {
+  padding: 2px 8px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+}
 .project__name {
-  margin-top: 4px;
-  font-size: 1.1875rem;
+  margin-top: 6px;
+  font-size: clamp(1.1875rem, 1.1rem + .3vw, 1.375rem);
   line-height: 1.3;
   letter-spacing: -.02em;
 }
-.project__about { color: var(--ink-2); max-width: var(--measure); }
+.project__about {
+  margin-top: var(--s-3);
+  color: var(--ink-2);
+  max-width: var(--measure);
+}
+
 .project__scale {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-1) var(--s-5);
-  padding: var(--s-3) 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  font-size: .875rem;
+  gap: var(--s-3) var(--s-6);
+}
+.project__scale span {
+  display: grid;
+  font-size: .8125rem;
   color: var(--ink-2);
 }
 .project__scale strong {
-  margin-right: 4px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -.02em;
   color: var(--ink);
 }
-.project .tags { padding-top: var(--s-1); }
 
-.role__groups {
-  display: grid;
-  gap: 28px 40px;
-}
-.group h4,
-.group h5 {
-  font-size: .875rem;
+/* "What I did": a label column and short points */
+.work__title {
+  font-size: .8125rem;
   font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 10px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: var(--s-2);
 }
-
-.group ul,
-.role__list { display: grid; gap: 10px; color: var(--ink-2); }
-.group li,
-.role__list li {
+.work__row {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-4) 0;
+  border-top: 1px solid var(--rule);
+}
+.work__row dt {
+  font-size: .9375rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.work__row ul,
+.work-list { display: grid; gap: var(--s-2); color: var(--ink-2); }
+.work__row li,
+.work-list li {
   position: relative;
-  padding-left: 20px;
-  max-width: var(--measure);
+  padding-left: 18px;
 }
-.group li::before,
-.role__list li::before {
+.work__row li::before,
+.work-list li::before {
   content: "";
   position: absolute;
-  left: 0; top: .8em;
-  width: 8px; height: 2px;
+  left: 0; top: .78em;
+  width: 7px; height: 2px;
   border-radius: 2px;
   background: var(--accent);
 }
-
-@media (min-width: 760px) {
-  .role__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .group--wide { grid-column: 1 / -1; }
+@media (min-width: 720px) {
+  .work__row { grid-template-columns: 11rem minmax(0, 1fr); gap: var(--s-5); }
 }
 
-/* Timeline thread on wider screens */
-@media (min-width: 640px) {
-  .roles { padding-left: var(--s-6); border-left: 1px solid var(--rule); }
-  .role::before {
-    content: "";
-    position: absolute;
-    left: -38px; top: .6em;
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 5px var(--paper);
-  }
-  .role--early::before { background: var(--paper); border: 2px solid var(--accent); }
-}
+.project .tags { padding-top: var(--s-4); border-top: 1px solid var(--rule); }
 
 /* ---------- Toolkit ---------- */
 .kit { display: grid; gap: var(--s-4); }
