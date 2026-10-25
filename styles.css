@@ -618,49 +618,20 @@ main:focus { outline: none; }
   color: var(--ink);
 }
 
-/* "What I did": a label column and short points */
-.work__title {
-  font-size: .8125rem;
-  font-weight: 700;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  margin-bottom: var(--s-2);
-}
-.work__row {
+/* Project points: a plain bulleted list */
+.points {
   display: grid;
-  gap: var(--s-2);
-  padding: var(--s-4) 0;
-  border-top: 1px solid var(--rule);
+  gap: var(--s-3);
+  padding-left: 1.25rem;
+  list-style: disc;
+  color: var(--ink-2);
 }
-.work__row dt {
-  font-size: .9375rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.work__row ul,
-.work-list { display: grid; gap: var(--s-2); color: var(--ink-2); }
-.work__row li,
-.work-list li {
-  position: relative;
-  padding-left: 18px;
-}
-.work__row li::before,
-.work-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: .78em;
-  width: 7px; height: 2px;
-  border-radius: 2px;
-  background: var(--accent);
-}
-@media (min-width: 720px) {
-  .work__row { grid-template-columns: 11rem minmax(0, 1fr); gap: var(--s-5); }
-}
+.points li { padding-left: 4px; max-width: var(--measure); }
+.points li::marker { color: var(--accent); }
 
 .project .tags { padding-top: var(--s-4); border-top: 1px solid var(--rule); }
 
-/* ---------- Toolkit ---------- */
+/* ---------- Skills ---------- */
 .kit { display: grid; gap: var(--s-4); }
 .kit__set { padding: 20px; }
 .kit__set h3 {
