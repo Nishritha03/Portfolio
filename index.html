@@ -106,7 +106,7 @@
           <ol class="toc__list" aria-labelledby="toc-title">
             <li><a href="#practice">Practice</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#toolkit">Toolkit</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#side-builds">Side builds</a></li>
             <li><a href="#accreditation">Accreditation</a></li>
             <li><a href="#study">Study</a></li>
@@ -200,24 +200,11 @@
                 <h4 class="project__name" id="proj-hr">AI-powered HR performance platform</h4>
                 <p class="project__about">Runs performance review cycles end to end: self-evaluations, manager reviews, surveys and survey respondents, across review cycles with several stages.</p>
               </header>
-              <div>
-                <p class="work__title">What I did</p>
-                <dl>
-                  <div class="work__row">
-                    <dt>Testing</dt>
-                    <dd><ul>
-                      <li>End-to-end testing of review cycles, self-evaluations, surveys and respondent flows.</li>
-                      <li>Learned new product requirements through hands-on validation with product and developers.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Frontend development</dt>
-                    <dd><ul>
-                      <li>Build frontend features in TypeScript and Node.js, and test what I ship.</li>
-                    </ul></dd>
-                  </div>
-                </dl>
-              </div>
+              <ul class="points">
+                <li>End-to-end testing of review cycles, self-evaluations, surveys and respondent flows.</li>
+                <li>Build frontend features in TypeScript and Node.js, and test what I ship.</li>
+                <li>Learned new product requirements through hands-on validation with product and developers.</li>
+              </ul>
               <ul class="tags" aria-label="Stack"><li>TypeScript</li><li>Node.js</li><li>Playwright</li><li>End-to-end testing</li></ul>
             </article>
 
@@ -228,49 +215,19 @@
                 <p class="project__about">An agentic AI platform for private equity firms, transaction advisory teams and investment bankers. Purpose-built AI agents support deal sourcing and market mapping, due diligence, portfolio monitoring and exit planning.</p>
               </header>
               <p class="project__scale"><span><strong>5,000+</strong>users</span><span><strong>20+</strong>countries</span></p>
-              <div>
-                <p class="work__title">What I did</p>
-                <dl>
-                  <div class="work__row">
-                    <dt>End-to-end and regression</dt>
-                    <dd><ul>
-                      <li>Functional, regression, smoke and release testing across UI, database and production.</li>
-                      <li>Key modules: List Builder, Project Chat, Reports, Artifacts and Admin.</li>
-                      <li>Playwright (Python) automation with pytest and Allure, sped up with AI-assisted development.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Component library</dt>
-                    <dd><ul>
-                      <li>Test the shared library that every UI component is built and rendered from, so each component is verified once at the source and wherever it’s reused.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Load and cloud</dt>
-                    <dd><ul>
-                      <li>Load testing under heavy use.</li>
-                      <li>Azure Container Apps and Function Apps configuration across environments.</li>
-                      <li>Found an Azure Service Bus autoscaling issue during report-generation testing.</li>
-                      <li>Embedding indexing in Azure AI Search.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Releases</dt>
-                    <dd><ul>
-                      <li>QA and production deployments: branch cuts, environment variables, post-deploy validation and production smoke tests.</li>
-                      <li>Tenant creation, configuration and database-level validation.</li>
-                      <li>Issue tracing through application logs and Datadog.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>AI usage and cost</dt>
-                    <dd><ul>
-                      <li>Monitor OpenAI, Anthropic, Gemini and Serper usage and cost while testing AI features.</li>
-                      <li>Investigated unexpected LLM usage in report generation, raising the team’s awareness of token spend.</li>
-                    </ul></dd>
-                  </div>
-                </dl>
-              </div>
+              <ul class="points">
+                <li>End-to-end, regression, smoke and release testing across UI, database and production.</li>
+                <li>Tested key modules: List Builder, Project Chat, Reports, Artifacts and Admin.</li>
+                <li>Built and maintain Playwright (Python) automation with pytest and Allure, using AI-assisted development to write regression scripts faster.</li>
+                <li>Tested the shared component library that every UI component is built and rendered from, so each component is verified once at the source and wherever it’s reused.</li>
+                <li>Load testing to check how the platform performs under heavy use.</li>
+                <li>Cloud testing on Azure: Container Apps and Function Apps configuration across environments, and embedding indexing in Azure AI Search.</li>
+                <li>Found an Azure Service Bus autoscaling issue during report-generation testing, which the team then fixed.</li>
+                <li>Run QA and production deployments: branch cuts, environment variables, post-deploy validation and production smoke tests.</li>
+                <li>Tenant creation, configuration and database-level validation across tenant environments.</li>
+                <li>Trace issues through application logs and Datadog, and work with developers on the fixes.</li>
+                <li>Monitor OpenAI, Anthropic, Gemini and Serper usage and cost while testing AI features, and investigated unexpected LLM usage in report generation.</li>
+              </ul>
               <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Azure</li><li>Datadog</li><li>GitHub Actions</li></ul>
             </article>
           </section>
@@ -292,38 +249,15 @@
                 <p class="project__about">A generative AI platform used by consultants across a global professional services firm, with AI chat, Skills, document summarization, document search and question answering, and report generation.</p>
               </header>
               <p class="project__scale"><span><strong>11K+</strong>users</span><span><strong>13+</strong>countries</span><span><strong>30%</strong>less manual testing</span></p>
-              <div>
-                <p class="work__title">What I did</p>
-                <dl>
-                  <div class="work__row">
-                    <dt>Feature testing</dt>
-                    <dd><ul>
-                      <li>End-to-end testing of the Chat and Skills features, plus the document analysis and workspace modules.</li>
-                      <li>Manual and automation testing for releases used by 11K+ people in 13+ countries.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Automation</dt>
-                    <dd><ul>
-                      <li>Designed the UI automation framework with Playwright (Python) and Allure reporting.</li>
-                      <li>Smoke and regression suites that cut manual testing effort by 30%.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Load testing</dt>
-                    <dd><ul>
-                      <li>JMeter load tests for file-upload performance and stability under high load.</li>
-                    </ul></dd>
-                  </div>
-                  <div class="work__row">
-                    <dt>Team</dt>
-                    <dd><ul>
-                      <li>Interviewed and evaluated candidates for Junior QA Engineer roles.</li>
-                      <li>Worked closely with product and development teams on every release.</li>
-                    </ul></dd>
-                  </div>
-                </dl>
-              </div>
+              <ul class="points">
+                <li>End-to-end testing of the Chat and Skills features, plus the document analysis and workspace modules.</li>
+                <li>Manual and automation testing for releases used by 11K+ people in 13+ countries.</li>
+                <li>Designed the UI automation framework with Playwright (Python) and Allure reporting.</li>
+                <li>Built smoke and regression suites that cut manual testing effort by 30%.</li>
+                <li>JMeter load tests for file-upload performance and stability under high load.</li>
+                <li>Interviewed and evaluated candidates for Junior QA Engineer roles.</li>
+                <li>Worked closely with product and development teams on every release.</li>
+              </ul>
               <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Postman</li><li>SQL</li></ul>
             </article>
           </section>
@@ -339,7 +273,7 @@
             </header>
 
             <article class="project" aria-label="Internship work">
-              <ul class="work-list">
+              <ul class="points">
                 <li>Built Playwright (Python) smoke and regression suites with Allure reporting for an AI web application in the private equity domain.</li>
                 <li>Manual testing: test case design, execution, defect reporting, and reproducing issues with developers and product.</li>
               </ul>
@@ -349,45 +283,45 @@
         </div>
       </section>
 
-      <!-- Toolkit -->
-      <section class="chapter" id="toolkit" aria-labelledby="toolkit-title">
+      <!-- Skills -->
+      <section class="chapter" id="skills" aria-labelledby="skills-title">
         <header class="chapter__head">
-          <h2 id="toolkit-title">Toolkit</h2>
-          <p class="chapter__dek">What I reach for, sorted by the job it does.</p>
+          <h2 id="skills-title">Skills</h2>
+          <p class="chapter__dek">Technical skills, grouped by area.</p>
         </header>
 
         <div class="kit">
           <div class="kit__set">
             <h3>Test automation</h3>
-            <ul class="tags"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>Selenium</li><li>AI-assisted test development</li></ul>
+            <ul class="tags"><li>Playwright (Python)</li><li>pytest</li><li>Allure Reports</li><li>Selenium</li><li>AI-assisted test scripting</li></ul>
           </div>
           <div class="kit__set">
-            <h3>Testing practice</h3>
-            <ul class="tags"><li>End-to-end</li><li>Regression</li><li>Smoke</li><li>Release</li><li>Load</li><li>Cloud-level</li><li>Component library</li><li>Manual</li><li>Exploratory</li></ul>
+            <h3>Types of testing</h3>
+            <ul class="tags"><li>End-to-end testing</li><li>Regression testing</li><li>Smoke testing</li><li>Release testing</li><li>Load testing</li><li>Cloud testing</li><li>Component library testing</li><li>Manual testing</li><li>Exploratory testing</li></ul>
           </div>
           <div class="kit__set">
-            <h3>AI quality and cost</h3>
-            <ul class="tags"><li>LLM feature testing</li><li>OpenAI</li><li>Anthropic</li><li>Gemini</li><li>Serper</li><li>Usage and cost monitoring</li><li>Azure AI Search</li><li>RAG</li></ul>
+            <h3>AI testing and cost monitoring</h3>
+            <ul class="tags"><li>LLM feature testing</li><li>RAG testing</li><li>Azure AI Search</li><li>OpenAI</li><li>Anthropic</li><li>Gemini</li><li>Serper</li><li>Usage and cost tracking</li></ul>
           </div>
           <div class="kit__set">
-            <h3>APIs, data and load</h3>
-            <ul class="tags"><li>REST APIs</li><li>Postman</li><li>SQL</li><li>MongoDB</li><li>Database validation</li><li>JMeter</li></ul>
+            <h3>API, database and performance testing</h3>
+            <ul class="tags"><li>REST API testing</li><li>Postman</li><li>SQL</li><li>MongoDB</li><li>Database validation</li><li>JMeter</li></ul>
           </div>
           <div class="kit__set">
-            <h3>Cloud and observability</h3>
+            <h3>Cloud and monitoring</h3>
             <ul class="tags"><li>Azure cloud infrastructure</li><li>Azure Container Apps</li><li>Azure Function Apps</li><li>Azure Service Bus</li><li>AWS</li><li>Datadog</li></ul>
           </div>
           <div class="kit__set">
-            <h3>Delivery and DevOps</h3>
-            <ul class="tags"><li>GitHub</li><li>GitHub Actions</li><li>Azure DevOps</li><li>CI/CD</li><li>QA &amp; production deployments</li><li>Multi-tenant setup</li><li>Git</li><li>Jira</li><li>Azure Boards</li></ul>
+            <h3>CI/CD and DevOps</h3>
+            <ul class="tags"><li>GitHub</li><li>GitHub Actions</li><li>Azure DevOps</li><li>Git</li><li>QA and production deployments</li><li>Multi-tenant setup</li></ul>
           </div>
           <div class="kit__set">
             <h3>Frontend development</h3>
-            <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>Component libraries</li><li>HTML &amp; CSS</li><li>VS Code</li></ul>
+            <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>HTML and CSS</li><li>Component libraries</li></ul>
           </div>
           <div class="kit__set">
-            <h3>Building with AI</h3>
-            <ul class="tags"><li>Python</li><li>Anthropic API</li><li>Claude Agent SDK</li><li>MCP</li></ul>
+            <h3>Programming, AI and tools</h3>
+            <ul class="tags"><li>Python</li><li>Anthropic API</li><li>Claude Agent SDK</li><li>MCP</li><li>Jira</li><li>Azure Boards</li><li>VS Code</li></ul>
           </div>
         </div>
       </section>
