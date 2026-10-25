@@ -105,7 +105,7 @@
           <p class="toc__title" id="toc-title">Contents</p>
           <ol class="toc__list" aria-labelledby="toc-title">
             <li><a href="#practice">Practice</a></li>
-            <li><a href="#track-record">Track record</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#toolkit">Toolkit</a></li>
             <li><a href="#side-builds">Side builds</a></li>
             <li><a href="#accreditation">Accreditation</a></li>
@@ -139,7 +139,7 @@
         <p class="opening__lede">I’m Nishritha, a QA Automation Engineer on GenAI and agentic AI platforms for consulting, private markets and HR. I test end to end — UI, APIs, load and the cloud underneath — write Playwright automation in Python, run releases through CI/CD, and build frontend features in TypeScript and Node.js.</p>
         <div class="opening__actions">
           <a class="btn btn--solid" href="#write">Start a conversation</a>
-          <a class="btn btn--line" href="#track-record">See where I’ve worked <span aria-hidden="true">→</span></a>
+          <a class="btn btn--line" href="#experience">See where I’ve worked <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -175,149 +175,177 @@
         </figure>
       </section>
 
-      <!-- Track record -->
-      <section class="chapter" id="track-record" aria-labelledby="track-title">
+      <!-- Experience -->
+      <section class="chapter" id="experience" aria-labelledby="experience-title">
         <header class="chapter__head">
-          <h2 id="track-title">Track record</h2>
-          <p class="chapter__dek">Three AI products across HR, private markets and consulting, each tested end to end.</p>
+          <h2 id="experience-title">Experience</h2>
+          <p class="chapter__dek">Where I’ve worked and the AI products I’ve tested there, one project at a time.</p>
         </header>
 
-        <div class="roles">
-          <article class="role" aria-labelledby="role-apm">
-            <header class="role__head">
-              <h3 class="role__org" id="role-apm">Agentic Private Markets</h3>
-              <p class="role__meta"><span>QA Automation Engineer</span><span class="role__when"><time datetime="2025-08">Aug 2025</time> to present</span></p>
+        <div class="exp">
+
+          <!-- Agentic Private Markets -->
+          <section class="company" aria-labelledby="co-apm">
+            <header class="company__head">
+              <div>
+                <h3 class="company__name" id="co-apm">Agentic Private Markets</h3>
+                <p class="company__role">QA Automation Engineer</p>
+              </div>
+              <p class="company__when"><time datetime="2025-08">Aug 2025</time> – Present</p>
             </header>
 
-            <div class="projects">
-              <article class="project" aria-labelledby="proj-hr">
-                <header>
-                  <p class="project__tag">HR and people operations · Current</p>
-                  <h4 class="project__name" id="proj-hr">AI-powered HR performance platform</h4>
-                </header>
-                <p class="project__about">A platform that runs performance review cycles end to end: self-evaluations, manager reviews, surveys and the people who respond to them, across review cycles with several stages.</p>
-                <div class="role__groups">
-                  <div class="group">
-                    <h5>Testing</h5>
-                    <ul>
-                      <li>Test review cycles, self-evaluations, surveys and respondent flows end to end.</li>
-                      <li>Learned unfamiliar product requirements through hands-on validation with product and developers.</li>
-                    </ul>
+            <article class="project" aria-labelledby="proj-hr">
+              <header>
+                <p class="project__tag">HR and people operations <span class="badge">Current</span></p>
+                <h4 class="project__name" id="proj-hr">AI-powered HR performance platform</h4>
+                <p class="project__about">Runs performance review cycles end to end: self-evaluations, manager reviews, surveys and survey respondents, across review cycles with several stages.</p>
+              </header>
+              <div>
+                <p class="work__title">What I did</p>
+                <dl>
+                  <div class="work__row">
+                    <dt>Testing</dt>
+                    <dd><ul>
+                      <li>End-to-end testing of review cycles, self-evaluations, surveys and respondent flows.</li>
+                      <li>Learned new product requirements through hands-on validation with product and developers.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group">
-                    <h5>Frontend development</h5>
-                    <ul>
-                      <li>Build frontend features in TypeScript and Node.js, then test what I ship.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>Frontend development</dt>
+                    <dd><ul>
+                      <li>Build frontend features in TypeScript and Node.js, and test what I ship.</li>
+                    </ul></dd>
                   </div>
-                </div>
-                <ul class="tags" aria-label="Stack"><li>TypeScript</li><li>Node.js</li><li>Playwright</li><li>End-to-end testing</li></ul>
-              </article>
+                </dl>
+              </div>
+              <ul class="tags" aria-label="Stack"><li>TypeScript</li><li>Node.js</li><li>Playwright</li><li>End-to-end testing</li></ul>
+            </article>
 
-              <article class="project" aria-labelledby="proj-apm">
-                <header>
-                  <p class="project__tag">Private markets · Agentic AI</p>
-                  <h4 class="project__name" id="proj-apm">AgenticPM — AI agents for private markets</h4>
-                </header>
+            <article class="project" aria-labelledby="proj-apm">
+              <header>
+                <p class="project__tag">Private markets · Agentic AI</p>
+                <h4 class="project__name" id="proj-apm">AgenticPM — AI agents for private markets</h4>
                 <p class="project__about">An agentic AI platform for private equity firms, transaction advisory teams and investment bankers. Purpose-built AI agents support deal sourcing and market mapping, due diligence, portfolio monitoring and exit planning.</p>
-                <p class="project__scale"><span><strong>5,000+</strong>users</span><span><strong>20+</strong>countries</span></p>
-                <div class="role__groups">
-                  <div class="group">
-                    <h5>End-to-end and regression</h5>
-                    <ul>
-                      <li>Test sprint features across UI, database and production: functional, regression, smoke and release testing.</li>
-                      <li>Cover the key modules: List Builder, Project Chat, Reports, Artifacts and Admin.</li>
-                      <li>Build and maintain Playwright automation in Python with pytest and Allure, using AI-assisted development to write regression scripts faster.</li>
-                    </ul>
+              </header>
+              <p class="project__scale"><span><strong>5,000+</strong>users</span><span><strong>20+</strong>countries</span></p>
+              <div>
+                <p class="work__title">What I did</p>
+                <dl>
+                  <div class="work__row">
+                    <dt>End-to-end and regression</dt>
+                    <dd><ul>
+                      <li>Functional, regression, smoke and release testing across UI, database and production.</li>
+                      <li>Key modules: List Builder, Project Chat, Reports, Artifacts and Admin.</li>
+                      <li>Playwright (Python) automation with pytest and Allure, sped up with AI-assisted development.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group">
-                    <h5>Component library</h5>
-                    <ul>
-                      <li>Test the shared component library: UI components are built once in a central library and rendered from there across the product, so each one is verified at the source and wherever it’s reused.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>Component library</dt>
+                    <dd><ul>
+                      <li>Test the shared library that every UI component is built and rendered from, so each component is verified once at the source and wherever it’s reused.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group">
-                    <h5>Load and cloud</h5>
-                    <ul>
-                      <li>Load testing to check how the platform holds up under heavy use.</li>
-                      <li>Validate Azure Container Apps and Function Apps configuration and how each environment behaves.</li>
-                      <li>Found an Azure Service Bus autoscaling issue while testing report generation, which let the team resolve it.</li>
-                      <li>Tested embedding indexing in Azure AI Search.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>Load and cloud</dt>
+                    <dd><ul>
+                      <li>Load testing under heavy use.</li>
+                      <li>Azure Container Apps and Function Apps configuration across environments.</li>
+                      <li>Found an Azure Service Bus autoscaling issue during report-generation testing.</li>
+                      <li>Embedding indexing in Azure AI Search.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group">
-                    <h5>Releases and investigation</h5>
-                    <ul>
-                      <li>Run QA and production deployments: branch cuts, environment variable updates, post-deployment validation and production smoke tests.</li>
-                      <li>Database-level validation, tenant creation and configuration across tenant environments.</li>
-                      <li>Trace issues through application logs and Datadog, and work with developers on the fixes.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>Releases</dt>
+                    <dd><ul>
+                      <li>QA and production deployments: branch cuts, environment variables, post-deploy validation and production smoke tests.</li>
+                      <li>Tenant creation, configuration and database-level validation.</li>
+                      <li>Issue tracing through application logs and Datadog.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group group--wide">
-                    <h5>AI usage and cost</h5>
-                    <ul>
-                      <li>Monitor usage and cost dashboards for OpenAI, Anthropic, Gemini and Serper while testing AI features.</li>
-                      <li>Investigated unexpected LLM usage in report generation, which raised the team’s awareness of token consumption and expensive tool operations.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>AI usage and cost</dt>
+                    <dd><ul>
+                      <li>Monitor OpenAI, Anthropic, Gemini and Serper usage and cost while testing AI features.</li>
+                      <li>Investigated unexpected LLM usage in report generation, raising the team’s awareness of token spend.</li>
+                    </ul></dd>
                   </div>
-                </div>
-                <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Azure</li><li>Datadog</li><li>GitHub Actions</li></ul>
-              </article>
-            </div>
-          </article>
+                </dl>
+              </div>
+              <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Azure</li><li>Datadog</li><li>GitHub Actions</li></ul>
+            </article>
+          </section>
 
-          <article class="role" aria-labelledby="role-ip">
-            <header class="role__head">
-              <h3 class="role__org" id="role-ip">Infinite Possibilities</h3>
-              <p class="role__meta"><span>QA Automation Engineer</span><span class="role__when"><time datetime="2025-04">Apr 2025</time> to present</span></p>
+          <!-- Infinite Possibilities -->
+          <section class="company" aria-labelledby="co-ip">
+            <header class="company__head">
+              <div>
+                <h3 class="company__name" id="co-ip">Infinite Possibilities</h3>
+                <p class="company__role">QA Automation Engineer</p>
+              </div>
+              <p class="company__when"><time datetime="2025-04">Apr 2025</time> – Present</p>
             </header>
 
-            <div class="projects">
-              <article class="project" aria-labelledby="proj-gen">
-                <header>
-                  <p class="project__tag">Management consulting · Generative AI</p>
-                  <h4 class="project__name" id="proj-gen">Enterprise GenAI platform for a global consulting firm</h4>
-                </header>
+            <article class="project" aria-labelledby="proj-gen">
+              <header>
+                <p class="project__tag">Management consulting · Generative AI</p>
+                <h4 class="project__name" id="proj-gen">Enterprise GenAI platform for a global consulting firm</h4>
                 <p class="project__about">A generative AI platform used by consultants across a global professional services firm, with AI chat, Skills, document summarization, document search and question answering, and report generation.</p>
-                <p class="project__scale"><span><strong>11K+</strong>users</span><span><strong>13+</strong>countries</span><span><strong>30%</strong>less manual testing</span></p>
-                <div class="role__groups">
-                  <div class="group">
-                    <h5>Feature testing</h5>
-                    <ul>
-                      <li>Tested the Chat and Skills features end to end, along with the document analysis and workspace modules.</li>
-                      <li>Manual and automation testing for releases rolled out to 11K+ users in 13+ countries.</li>
-                    </ul>
+              </header>
+              <p class="project__scale"><span><strong>11K+</strong>users</span><span><strong>13+</strong>countries</span><span><strong>30%</strong>less manual testing</span></p>
+              <div>
+                <p class="work__title">What I did</p>
+                <dl>
+                  <div class="work__row">
+                    <dt>Feature testing</dt>
+                    <dd><ul>
+                      <li>End-to-end testing of the Chat and Skills features, plus the document analysis and workspace modules.</li>
+                      <li>Manual and automation testing for releases used by 11K+ people in 13+ countries.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group">
-                    <h5>Automation and load</h5>
-                    <ul>
-                      <li>Designed the UI test automation framework with Playwright (Python) and Allure reporting.</li>
-                      <li>Smoke and regression automation that cut manual testing effort by 30%.</li>
-                      <li>JMeter load tests that validated file-upload performance and stability under high load.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>Automation</dt>
+                    <dd><ul>
+                      <li>Designed the UI automation framework with Playwright (Python) and Allure reporting.</li>
+                      <li>Smoke and regression suites that cut manual testing effort by 30%.</li>
+                    </ul></dd>
                   </div>
-                  <div class="group group--wide">
-                    <h5>Team</h5>
-                    <ul>
-                      <li>Ran and evaluated technical interviews for Junior QA Engineer roles, and worked closely with product and development teams to ship high-quality releases.</li>
-                    </ul>
+                  <div class="work__row">
+                    <dt>Load testing</dt>
+                    <dd><ul>
+                      <li>JMeter load tests for file-upload performance and stability under high load.</li>
+                    </ul></dd>
                   </div>
-                </div>
-                <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Postman</li><li>SQL</li></ul>
-              </article>
-            </div>
-          </article>
+                  <div class="work__row">
+                    <dt>Team</dt>
+                    <dd><ul>
+                      <li>Interviewed and evaluated candidates for Junior QA Engineer roles.</li>
+                      <li>Worked closely with product and development teams on every release.</li>
+                    </ul></dd>
+                  </div>
+                </dl>
+              </div>
+              <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Postman</li><li>SQL</li></ul>
+            </article>
+          </section>
 
-          <article class="role role--early" aria-labelledby="role-intern">
-            <header class="role__head">
-              <h3 class="role__org" id="role-intern">Infinite Possibilities</h3>
-              <p class="role__meta"><span>QA Automation Intern</span><span class="role__when"><time datetime="2025-01">Jan 2025</time> to <time datetime="2025-03">Mar 2025</time></span></p>
+          <!-- Internship -->
+          <section class="company" aria-labelledby="co-intern">
+            <header class="company__head">
+              <div>
+                <h3 class="company__name" id="co-intern">Infinite Possibilities</h3>
+                <p class="company__role">QA Automation Intern</p>
+              </div>
+              <p class="company__when"><time datetime="2025-01">Jan 2025</time> – <time datetime="2025-03">Mar 2025</time></p>
             </header>
-            <ul class="role__list">
-              <li>Smoke and regression automation suites for an AI-powered web application in the private equity domain, using Playwright (Python) and Allure reporting.</li>
-              <li>Manual testing: test case design, execution, defect identification and bug reporting, working with developers and product to validate requirements and reproduce issues.</li>
-            </ul>
-          </article>
+
+            <article class="project" aria-label="Internship work">
+              <ul class="work-list">
+                <li>Built Playwright (Python) smoke and regression suites with Allure reporting for an AI web application in the private equity domain.</li>
+                <li>Manual testing: test case design, execution, defect reporting, and reproducing issues with developers and product.</li>
+              </ul>
+            </article>
+          </section>
+
         </div>
       </section>
 
