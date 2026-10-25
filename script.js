@@ -114,7 +114,7 @@
   /* ---------- Gentle reveal ---------- */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
-    var items = document.querySelectorAll('.chapter__head, .prose, .layers, .product, .role, .kit__set, .build, .cert, .degree, .invite, .reach');
+    var items = document.querySelectorAll('.chapter__head, .prose, .layers, .project, .role, .kit__set, .build, .cert, .degree, .invite, .reach');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
