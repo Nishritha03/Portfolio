@@ -628,6 +628,7 @@ main:focus { outline: none; }
 }
 .points li { padding-left: 4px; max-width: var(--measure); }
 .points li::marker { color: var(--accent); }
+.points strong { color: var(--ink); font-weight: 700; }
 
 .project .tags { padding-top: var(--s-4); border-top: 1px solid var(--rule); }
 
