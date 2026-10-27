@@ -198,14 +198,19 @@
               <header>
                 <p class="project__tag">HR and people operations <span class="badge">Current</span></p>
                 <h4 class="project__name" id="proj-hr">AI-powered HR performance platform</h4>
-                <p class="project__about">Runs performance review cycles end to end: self-evaluations, manager reviews, surveys and survey respondents, across review cycles with several stages.</p>
+                <p class="project__about">An AI-powered performance review and feedback platform: employee self-evaluations, 360-degree feedback surveys (including voice-based surveys run by AI agents), evaluator reviews and AI-generated performance reports, across review cycles with several stages.</p>
               </header>
               <ul class="points">
-                <li>End-to-end testing of review cycles, self-evaluations, surveys and respondent flows.</li>
-                <li>Build frontend features in TypeScript and Node.js, and test what I ship.</li>
-                <li>Learned new product requirements through hands-on validation with product and developers.</li>
+                <li>Tested complete performance review workflows, from employee self-evaluation through feedback collection and evaluator review to report generation.</li>
+                <li><strong>GenAI and voice AI testing:</strong> validated AI-driven conversations and voice-based survey interviews with AI agents, including transcript generation, transcription behaviour, follow-up questions, and the generated reports and workflow outcomes.</li>
+                <li><strong>360-degree feedback and review cycles:</strong> tested respondent management, survey launch and monitoring, review-cycle statuses and the transitions between stages.</li>
+                <li><strong>Complex defect finding:</strong> identified and documented functional, UI, workflow and data-integrity defects, including incorrect survey and status updates, missing actions, respondent visibility problems, inconsistent workflow states and report-generation issues.</li>
+                <li><strong>API and full-stack investigation:</strong> validated APIs and investigated issues across frontend and backend workflows to find where each one started.</li>
+                <li><strong>Release validation:</strong> ran smoke and regression tests across QA and development environments, validated deployments, and performed production sanity checks on critical functionality.</li>
+                <li><strong>Frontend development:</strong> build frontend features in TypeScript and Node.js, and test what I ship.</li>
+                <li><strong>Collaboration:</strong> worked with developers to reproduce defects, verify fixes and improve application stability.</li>
               </ul>
-              <ul class="tags" aria-label="Stack"><li>TypeScript</li><li>Node.js</li><li>Playwright</li><li>End-to-end testing</li></ul>
+              <ul class="tags" aria-label="Stack"><li>TypeScript</li><li>Node.js</li><li>Voice AI testing</li><li>API testing</li><li>End-to-end testing</li><li>Regression testing</li></ul>
             </article>
 
             <article class="project" aria-labelledby="proj-apm">
@@ -214,19 +219,17 @@
                 <h4 class="project__name" id="proj-apm">AgenticPM — AI agents for private markets</h4>
                 <p class="project__about">An agentic AI platform for private equity firms, transaction advisory teams and investment bankers. Purpose-built AI agents support deal sourcing and market mapping, due diligence, portfolio monitoring and exit planning.</p>
               </header>
-              <p class="project__scale"><span><strong>5,000+</strong>users</span><span><strong>20+</strong>countries</span></p>
+              <p class="project__scale"><span><strong>5,000+</strong>users</span><span><strong>20+</strong>countries</span><span><strong>~3 min</strong>small reports, down from 15–20</span><span><strong>50+</strong>component bugs found</span><span><strong>30%</strong>less manual testing</span></p>
               <ul class="points">
-                <li>End-to-end, regression, smoke and release testing across UI, database and production.</li>
-                <li>Tested key modules: List Builder, Project Chat, Reports, Artifacts and Admin.</li>
-                <li>Built and maintain Playwright (Python) automation with pytest and Allure, using AI-assisted development to write regression scripts faster.</li>
-                <li>Tested the shared component library that every UI component is built and rendered from, so each component is verified once at the source and wherever it’s reused.</li>
-                <li>Load testing to check how the platform performs under heavy use.</li>
-                <li>Cloud testing on Azure: Container Apps and Function Apps configuration across environments, and embedding indexing in Azure AI Search.</li>
-                <li>Found an Azure Service Bus autoscaling issue during report-generation testing, which the team then fixed.</li>
-                <li>Run QA and production deployments: branch cuts, environment variables, post-deploy validation and production smoke tests.</li>
-                <li>Tenant creation, configuration and database-level validation across tenant environments.</li>
-                <li>Trace issues through application logs and Datadog, and work with developers on the fixes.</li>
-                <li>Monitor OpenAI, Anthropic, Gemini and Serper usage and cost while testing AI features, and investigated unexpected LLM usage in report generation.</li>
+                <li>End-to-end, regression, smoke and release testing across UI, database and production for the List Builder, Project Chat, Reports, Artifacts and Admin modules.</li>
+                <li><strong>Faster reports through an Azure Service Bus fix:</strong> small reports took 15–20 minutes and large ones about 30. While testing report generation at the cloud level, I found an Azure Service Bus autoscaling issue. After the fix, small reports finish in about 3 minutes and large ones in 5–7.</li>
+                <li><strong>Lower AI cost per report:</strong> large reports that used the Excel query MCP tool were costing $40–50 each in model usage. Monitoring OpenAI, Anthropic, Gemini and Serper usage during testing helped trace the root cause, and after the fix the cost per report dropped drastically.</li>
+                <li><strong>Load testing:</strong> found that report generation and artifact generation were the bottlenecks under load, and the team improved both.</li>
+                <li><strong>Component library testing:</strong> found 50+ rendering bugs in the shared library that every screen’s components are rendered from, including how components come out when downloaded as PowerPoint (PPT).</li>
+                <li><strong>Regression automation:</strong> built Playwright (Python) regression automation with pytest and Allure, using AI-assisted development to write scripts faster, cutting manual testing effort by 30%.</li>
+                <li><strong>Release ownership:</strong> handled 5–6 QA and production deployments, from release R3.6 to R4.4, covering branch cuts, environment variable updates, post-deployment validation and production smoke tests.</li>
+                <li><strong>Tenant setup:</strong> created 5 tenants, including 1 production and 3 QA tenants, with configuration and database-level validation for each.</li>
+                <li><strong>Production incident:</strong> traced a live production issue through application logs and Datadog, restored service within about 2 hours by restarting the container as a temporary fix, and documented the root cause for a permanent fix.</li>
               </ul>
               <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Azure</li><li>Datadog</li><li>GitHub Actions</li></ul>
             </article>
@@ -248,17 +251,21 @@
                 <h4 class="project__name" id="proj-gen">Enterprise GenAI platform for a global consulting firm</h4>
                 <p class="project__about">A generative AI platform used by consultants across a global professional services firm, with AI chat, Skills, document summarization, document search and question answering, and report generation.</p>
               </header>
-              <p class="project__scale"><span><strong>11K+</strong>users</span><span><strong>13+</strong>countries</span><span><strong>30%</strong>less manual testing</span></p>
+              <p class="project__scale"><span><strong>11K+</strong>users</span><span><strong>13+</strong>countries</span><span><strong>~35 min</strong>full regression run</span><span><strong>40%</strong>more smoke coverage</span></p>
               <ul class="points">
-                <li>End-to-end testing of the Chat and Skills features, plus the document analysis and workspace modules.</li>
                 <li>Manual and automation testing for releases used by 11K+ people in 13+ countries.</li>
-                <li>Designed the UI automation framework with Playwright (Python) and Allure reporting.</li>
-                <li>Built smoke and regression suites that cut manual testing effort by 30%.</li>
-                <li>JMeter load tests for file-upload performance and stability under high load.</li>
-                <li>Interviewed and evaluated candidates for Junior QA Engineer roles.</li>
-                <li>Worked closely with product and development teams on every release.</li>
+                <li><strong>Regression automation framework:</strong> regression for the platform was slow and manual, so I automated the high-priority document analysis, canvas and meeting-notes flows in Python and Playwright, then refactored them to a Page Object Model with class-scoped pytest fixtures and a shared browser context. A full run now takes about 35 minutes.</li>
+                <li><strong>Smoke suite with dynamic test data:</strong> replaced hardcoded projects with a fresh project created on every run, and added negative and edge-case scenarios, giving about 40% more coverage and a clean environment each time.</li>
+                <li><strong>Reporting and CI:</strong> integrated Allure reports organised by epic, feature and story, with screenshots and step logs, and set up a headless UI automation pipeline in Azure DevOps, so runs are repeatable and results are readable by non-engineers.</li>
+                <li><strong>Flaky-test debugging:</strong> traced failures to environment changes, timing and fragile locators such as index-based selectors and screenshot timeouts, and replaced them with stable locators in a central locator module, so previously failing tests now run reliably.</li>
+                <li><strong>Load testing for file uploads:</strong> built JMeter scenarios for 100-file, 200-file and multi-user uploads with automatic token refresh, analysed bottlenecks in Celery’s background processing, and documented the setup, giving developers concrete performance limits to work on.</li>
+                <li><strong>Real-time (WebSocket) testing:</strong> tested multi-tab, multi-user, slow-network and large-batch scenarios while inspecting console and WebSocket traffic, and found critical status-sync bugs, each documented with video, logs and exact reproduction steps.</li>
+                <li><strong>UI/UX revamp validation:</strong> tested every major module end to end and re-tested fixes alongside developers as they deployed, logging 60+ issues and shortening fix turnaround.</li>
+                <li><strong>Test design for complex features:</strong> wrote test plans and positive, negative and edge-case scenarios from requirements, Figma designs and documentation for role-based access control, data retention, multi-language support, assistant creation and AI-generated documents.</li>
+                <li><strong>UAT triage and release readiness:</strong> reproduced UAT-reported issues across environments, classified each as a bug, enhancement, environment-specific, duplicate or not-a-bug, wrote UAT guides and reviewed release notes, which cut back-and-forth between QA, developers and UAT.</li>
+                <li><strong>API validation and exploratory testing:</strong> used Postman to confirm fixes directly against the API before the UI was ready, explored an AI deep-research feature, and found a duplicate-submission bug affecting many modules, catching issues before production.</li>
               </ul>
-              <ul class="tags" aria-label="Stack"><li>Playwright (Python)</li><li>pytest</li><li>Allure</li><li>JMeter</li><li>Postman</li><li>SQL</li></ul>
+              <ul class="tags" aria-label="Stack"><li>Python</li><li>Playwright</li><li>pytest</li><li>Page Object Model</li><li>Allure</li><li>Azure DevOps</li><li>JMeter</li><li>Celery</li><li>WebSockets</li><li>Postman</li><li>Jira</li></ul>
             </article>
           </section>
 
@@ -317,7 +324,7 @@
           </div>
           <div class="kit__set">
             <h3>Frontend development</h3>
-            <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>HTML and CSS</li><li>Component libraries</li></ul>
+            <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>HTML and CSS</li><li>Streamlit</li></ul>
           </div>
           <div class="kit__set">
             <h3>Programming, AI and tools</h3>
